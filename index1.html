@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ders39-örn1</title>
+
+<style type="text/css">
+#sliderust {width:715px; height:402px; cursor:pointer;}
+#slideralt {width:715px;height:49px;background:#000;}
+#slideraltic {width:405px;height:49px;margin:0 auto;}
+ul {margin:0;padding:0;list-style:none;}
+ul li {float:left; display:block;width:40px; height:49px;color:#fff;font:bold 18px arial;text-align:center;line-height:49px;cursor:pointer}
+li:hover {background:#f00; }
+</style>
+
+<script type="text/javascript">
+
+var zaman;
+var resimler = new Array ("","url(images/1.jpg)","url(images/2.jpg)","url(images/3.jpg)","url(images/4.jpg)","url(images/5.jpg)","url(images/6.jpg)","url(images/7.jpg)","url(images/8.jpg)","url(images/9.jpg)","url(images/10.jpg)");
+
+
+var linkler = new Array ("","syf1.html","syf2.html","syf3.html","syf4.html","syf5.html","syf6.html","syf7.html","syf8.html","syf9.html","syf10.html");
+
+function degis(x)
+{
+		   window.clearInterval(zaman);
+		   
+	       for( var i=1;i<=10;i++)
+		{
+			if(x==i)
+			{
+				document.getElementById("sayi"+i).style.background="red";
+	   			document.getElementById("sliderust").style.background=resimler[x];	
+				document.getElementById("sliderust").setAttribute("onclick","window.location.href='"+linkler[x]+"'");	
+			}
+			
+			else
+			{
+				document.getElementById("sayi"+i).style.background="black";
+			}
+		}
+	
+}
+function basla(z)
+{
+	 if(z==1)
+	  {
+		 document.getElementById("sliderust").style.background=resimler[z];
+		 document.getElementById("sayi"+z).style.background="red";
+		 z++;
+		 document.getElementById("sliderust").setAttribute("onclick","window.location.href='"+linkler[z]+"'");	
+		 document.getElementById("sayi10").style.background="black"
+	  }
+	  
+	zaman = window.setInterval(function()
+	{
+		document.getElementById("sliderust").style.background=resimler[z];
+		document.getElementById("sliderust").setAttribute("onclick","window.location.href='"+linkler[z]+"'");
+		
+		for( var i=1;i<=10;i++)
+		{
+			if(z==i)
+			{
+				document.getElementById("sayi"+i).style.background="red";
+			}
+			else
+			{
+				document.getElementById("sayi"+i).style.background="black";
+			}
+		}
+		
+		z++;
+		
+		if(z==11)
+		{
+		z=1;
+		}
+		
+	},2000);
+}
+</script>
+</head>
+<body onload="basla(1)">
+<div id="sliderust"></div>
+<div id="slideralt">
+<div id="slideraltic">
+<ul>
+<li id="sayi1" onmouseover="degis(1)" onmouseout="basla(2)">1</li>
+<li id="sayi2" onmouseover="degis(2)" onmouseout="basla(3)">2</li>
+<li id="sayi3" onmouseover="degis(3)" onmouseout="basla(4)">3</li>
+<li id="sayi4" onmouseover="degis(4)" onmouseout="basla(5)">4</li>
+<li id="sayi5" onmouseover="degis(5)" onmouseout="basla(6)">5</li>
+<li id="sayi6" onmouseover="degis(6)" onmouseout="basla(7)">6</li>
+<li id="sayi7" onmouseover="degis(7)" onmouseout="basla(8)">7</li>
+<li id="sayi8" onmouseover="degis(8)" onmouseout="basla(9)">8</li>
+<li id="sayi9" onmouseover="degis(9)" onmouseout="basla(10)">9</li>
+<li id="sayi10" onmouseover="degis(10)" onmouseout="basla(1)">10</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
